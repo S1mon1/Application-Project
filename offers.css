@@ -1,0 +1,36 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+    padding: 10em;
+    overflow: auto;
+}
+
+.offers>div>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em 1em 1em 1em;
+    object-fit: cover;
+}
+
+.offers>div>div {
+    height: 50%;
+
+}
+
+.offers>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media only screen and (max-device-width: 420px){
+    section{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2em;
+        padding: 10em;
+        overflow: auto;
+    }
+}
