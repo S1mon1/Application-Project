@@ -6,11 +6,20 @@
 <body>
     <div class="container">
         <div class="login-container">
-            <form>
+            <form action="login" method="POST">
+                <div class="messages">
+                    <?php if(isset($messages)){
+                        foreach($messages as $message)
+                        {
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <p class="welcome" >Welcome!</p>
                 <input name="email" type="text" placeholder="email">
                 <input name="password" type="password" placeholder="password">
-                <button>LOGIN</button>
+                <button type='submit'>LOGIN</button>
                 <p class="create-account">Create Account</p>
             </form>
         </div>
