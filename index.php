@@ -10,5 +10,6 @@ Routing::get('create_account', 'DefaultController');
 Routing::get('offers', 'DefaultController');
 Routing::get('home', 'DefaultController');
 Routing::post('login', 'SecurityController');
+Routing::post('addOffer', 'OfferController');
 
 Routing::run($path);

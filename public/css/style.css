@@ -11,16 +11,16 @@ body{
     align-items: center;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+form.login{
     width: 25vw;
     height: 40vh;
     background-color: #acc2c5;
     border-radius: 25px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
 }
 
 button{
@@ -95,7 +95,7 @@ input{
     padding: 0 5%;
 }
 
-.base-container button{
+.base-container>button{
     position: absolute;
     height: 70px;
     width: 200px;

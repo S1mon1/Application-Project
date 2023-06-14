@@ -22,13 +22,17 @@
                     <p>description</p>
                 </div>
             </div>
+
+
             <div id="offer-1">
-                <img src="../../../photo.png"/>
+                <img src="public/uploads/<?= $offers->getImage() ?>"/>
                 <div>
-                    <h2>Car Brand</h2>
-                    <p>description</p>
+                    <h2><?= $offers->getTitle() ?></h2>
+                    <p><?= $offers->getDescription() ?></p>
                 </div>
             </div>
+
+
             <div id="offer-1">
                 <img src="../../../photo.png"/>
                 <div>

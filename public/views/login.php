@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <div class="login-container">
-            <form action="login" method="POST">
+            <form class="login" action="login" method="POST">
                 <div class="messages">
                     <?php if(isset($messages)){
                         foreach($messages as $message)
