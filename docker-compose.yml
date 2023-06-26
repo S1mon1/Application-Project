@@ -18,3 +18,15 @@ services:
             dockerfile: docker/php/Dockerfile
         volumes:
             - .:/app/
+    db:
+        image: postgres
+        restart: always
+        ports:
+            - "5455:5432"
+        volumes:
+            - ./data.sql:/docker-entrypoint-initdb.d/data.sql 
+
+        environment:
+            POSTGRES_USER: UseR
+            POSTGRES_PASSWORD: PassworD
+            POSTGRES_DB: db_name
