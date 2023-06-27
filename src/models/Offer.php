@@ -5,14 +5,14 @@ class Offer{
     private $description;
     private $image;
 
-    private $model;
+    //private $model;
 
     public function __construct($title, $description, $image){
         $this->title = $title;
         $this->description = $description;
         $this->image = $image;
 
-        $this->model = $model;
+        //$this->model = $model;
     }
 
     public function getTitle(): string{

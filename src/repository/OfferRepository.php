@@ -25,7 +25,27 @@ class OfferRepository extends Repository{
             $offer['image']
         );
     }
-4,14
+
+    public function getOffers(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare(
+            'SELECT * FROM offers'
+        );
+        $stmt->execute();
+        $offers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($offers as $offer){
+            $result[] = new Offer(
+                $offer['brand'],
+                $offer['description'],
+                $offer['image']
+            );
+        }
+        
+        return $result;
+    }
+
     public function addOffer(Offer $offer): void
     {
         $stmt = $this->database->connect()->prepare(

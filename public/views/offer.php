@@ -15,45 +15,15 @@
         </div>
 
         <section class="offers">
+            <?php foreach($offers as $offer): ?>
             <div id="offer-1">
-                <img src="../../../photo.png"/>
+                <img src="public/uploads/<?= $offer->getImage(); ?>"/>
                 <div>
-                    <h2>Car Brand</h2>
-                    <p>description</p>
+                    <h2><?= $offer->getTitle(); ?></h2>
+                    <p><?= $offer->getDescription(); ?></p>
                 </div>
             </div>
-
-
-            <div id="offer-1">
-                <img src="public/uploads/<?= $offers->getImage() ?>"/>
-                <div>
-                    <h2><?= $offers->getTitle() ?></h2>
-                    <p><?= $offers->getDescription() ?></p>
-                </div>
-            </div>
-
-
-            <div id="offer-1">
-                <img src="../../../photo.png"/>
-                <div>
-                    <h2>Car Brand</h2>
-                    <p>description</p>
-                </div>
-            </div>
-            <div id="offer-1">
-                <img src="../../../photo.png"/>
-                <div>
-                    <h2>Car Brand</h2>
-                    <p>description</p>
-                </div>
-            </div>
-            <div id="offer-1">
-                <img src="../../../photo.png"/>
-                <div>
-                    <h2>Car Brand</h2>
-                    <p>description</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </section>
 
     </div>

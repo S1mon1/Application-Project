@@ -19,6 +19,11 @@ class OfferController extends AppController{
         $this->offerRepository = new OfferRepository;
     }
 
+    public function offers() {
+        $offers = $this->offerRepository->getOffers();
+        $this->render('offer', ['offers' => $offers]);
+    }
+
     public function addOffer(){
 
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){

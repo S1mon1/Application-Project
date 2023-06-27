@@ -8,10 +8,6 @@ class DefaultController extends AppController {
         $this->render('create_account');
     }
 
-    public function offers() {
-        $this->render('offer');
-    }
-
     public function home() {
         $this->render('home');
     }
