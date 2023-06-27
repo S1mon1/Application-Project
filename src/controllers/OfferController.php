@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Offer.php';
+require_once __DIR__.'/../repository/OfferRepository.php';
 
 class OfferController extends AppController{
 
@@ -10,6 +11,13 @@ class OfferController extends AppController{
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $message = [];
+    private $offerRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->offerRepository = new OfferRepository;
+    }
 
     public function addOffer(){
 
@@ -17,6 +25,8 @@ class OfferController extends AppController{
             move_uploaded_file($_FILES['file']['tmp_name'], dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']);
 
             $offers = new Offer($_POST['title'], $_POST['description'], $_FILES['file']['name']);
+            $this->offerRepository->addOffer($offers);
+
             return $this->render('offer', ['messages' => $this->message, 'offers' => $offers]);
         }
 

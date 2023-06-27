@@ -5,10 +5,14 @@ class Offer{
     private $description;
     private $image;
 
+    private $model;
+
     public function __construct($title, $description, $image){
         $this->title = $title;
         $this->description = $description;
         $this->image = $image;
+
+        $this->model = $model;
     }
 
     public function getTitle(): string{
@@ -32,5 +36,13 @@ class Offer{
 
     public function setImage(string $image){
         $this->image = $image;
+    }
+
+    public function getModel(): string{
+        return $this->model;
+    }
+
+    public function setModel(string $model){
+        $this->model = $model;
     }
 }

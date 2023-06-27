@@ -1,5 +1,7 @@
 <?php
 
+//require_once "config.php";
+
 class Database{
     private $username;
     private $password;
