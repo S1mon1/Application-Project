@@ -61,4 +61,16 @@ class OfferRepository extends Repository{
             $offer->getImage()
         ]);
     }
+
+    public function getOfferByBrand(string $searchString)
+    {
+        $searchString = '%'.strtolower($searchString).'%';
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM offers WHERE LOWER(brand) LIKE :search or LOWER(description) LIKE :search
+        ');
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

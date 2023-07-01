@@ -11,5 +11,6 @@ Routing::get('offers', 'OfferController');
 Routing::get('home', 'DefaultController');
 Routing::post('login', 'SecurityController');
 Routing::post('addOffer', 'OfferController');
+Routing::post('search', 'OfferController');
 
 Routing::run($path);

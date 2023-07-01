@@ -6,7 +6,7 @@ function isEmail(email){
     return /\S+@\S+\.\S+/.test(email);
 }
 
-function arePassworssame(password, confirmedPassword){
+function arePasswordssame(password, confirmedPassword){
     return password === confirmedPassword;
 }
 
@@ -26,7 +26,7 @@ emailInput.addEventListener('keyup', validateEmail);
 
 function validatePassword(){
     setTimeout( function() {
-        const condition = arePassworssame(
+        const condition = arePasswordssame(
             confirmedPasswordInput.previousElementSibling.value,
             confirmedPasswordInput.value
         );
