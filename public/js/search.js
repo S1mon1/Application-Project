@@ -38,8 +38,9 @@ function createOffer(offer){
 
     const brand = clone.querySelector("h2");
     brand.innerHTML = offer.brand;
+
     const description = clone.querySelector("p");
-    description.innerHTML = offer.description;
+    description.innerHTML = offer.description; 
 
     offerContainer.appendChild(clone);
 

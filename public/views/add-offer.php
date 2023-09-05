@@ -24,7 +24,11 @@
                     }
                 }
                 ?>
-                <input name="title" type="text" placeholder="tile">
+                <input name="title" type="text" placeholder="brand">
+
+
+                <input name="title2" type="text" placeholder="model">                
+
                 <textarea name="description" rows="5" placeholder="description"></textarea>
                 <input name="file" type="file">
                 <button type="submit">Send</button>

@@ -18,10 +18,12 @@
                     ?>
                 </div>
                 <p class="create-new-account" >Create new account</p>
-                <input name="email" type="text" placeholder="email">
+                <input name="name" type="text" placeholder="name">
+                <input name="surname" type="text" placeholder="surname">
+                <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
                 <input name="confirmedPassword" type="password" placeholder="confirm password">
-                <button>CREATE ACCOUNT</button>
+                <button type="submit">CREATE ACCOUNT</button>
                 <p class="log-in">Log in</p>
             </form>
         </div>

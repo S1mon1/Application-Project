@@ -1,5 +1,4 @@
 
-
 CREATE TABLE users
 (
     id serial
@@ -8,8 +7,6 @@ CREATE TABLE users
     email varchar(255),
     password varchar(255)
 );
-
-INSERT INTO users (name, surname, email, password) VALUES ('John', 'Snow', 'test_email', 'test_password');
 
 CREATE TABLE offers
 (
@@ -27,8 +24,6 @@ ALTER TABLE offers
     add CONSTRAINT offers_users_id_fk
         FOREIGN KEY (id_assigned_by) REFERENCES users
             ON UPDATE CASCADE ON DELETE CASCADE;
-
-INSERT INTO offers (brand, model, description, id_assigned_by) VALUES ('car_brand', 'car_model', 'car_description', 1);
 
 create table users_offers
 (
@@ -59,8 +54,9 @@ CREATE TABLE users_details
 ALTER TABLE users 
     ADD id_user_details int default 0 not null;
 
-INSERT INTO users_details(name, surname) VALUES ('John', 'Snow');
+
 UPDATE users SET id_user_details = 1;
+
 
 ALTER TABLE users
     ADD CONSTRAINT details_users_fk
@@ -68,4 +64,6 @@ ALTER TABLE users
             ON UPDATE CASCADE ON DELETE CASCADE;
 
 
-
+INSERT INTO users (email, password, id_user_details) VALUES ('test_email', 'test_password', 1);
+INSERT INTO users_details(name, surname) VALUES ('John', 'Snow');
+INSERT INTO offers (brand, model, description, image, id_assigned_by) VALUES ('brand','model','description','photo.png',1);

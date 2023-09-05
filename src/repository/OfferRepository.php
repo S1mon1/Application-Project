@@ -21,6 +21,7 @@ class OfferRepository extends Repository{
         }
         return new Offer(
             $offer['title'],
+            $offer['model'],
             $offer['description'],
             $offer['image']
         );
@@ -38,6 +39,7 @@ class OfferRepository extends Repository{
         foreach ($offers as $offer){
             $result[] = new Offer(
                 $offer['brand'],
+                $offer['model'],
                 $offer['description'],
                 $offer['image']
             );
@@ -49,16 +51,15 @@ class OfferRepository extends Repository{
     public function addOffer(Offer $offer): void
     {
         $stmt = $this->database->connect()->prepare(
-            'INSERT INTO offers (brand, model, description, id_assigned_by, image) VALUES (?, ?, ?, ?, ?)
+            'INSERT INTO offers (brand, model, description, image, id_assigned_by) VALUES (?, ?, ?, ?, ?)
             ');
         $assignedById = 1;
-        $example_model = 'model';
         $stmt->execute([
             $offer->getTitle(),
-            $example_model,
+            $offer->getModel(),
             $offer->getDescription(),
-            $assignedById,
-            $offer->getImage()
+            $offer->getImage(),
+            $assignedById
         ]);
     }
 
@@ -66,7 +67,7 @@ class OfferRepository extends Repository{
     {
         $searchString = '%'.strtolower($searchString).'%';
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM offers WHERE LOWER(brand) LIKE :search or LOWER(description) LIKE :search
+            SELECT * FROM offers WHERE LOWER(brand) LIKE :search or LOWER(model) LIKE :search or LOWER(description) LIKE :search
         ');
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();

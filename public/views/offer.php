@@ -24,6 +24,7 @@
                 <img src="public/uploads/<?= $offer->getImage(); ?>"/>
                 <div>
                     <h2><?= $offer->getTitle(); ?></h2>
+                    <h3><?= $offer->getModel(); ?></h3>
                     <p><?= $offer->getDescription(); ?></p>
                 </div>
             </div>

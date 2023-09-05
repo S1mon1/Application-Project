@@ -29,7 +29,7 @@ class OfferController extends AppController{
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
             move_uploaded_file($_FILES['file']['tmp_name'], dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']);
 
-            $offers = new Offer($_POST['title'], $_POST['description'], $_FILES['file']['name']);
+            $offers = new Offer($_POST['title'], $_POST['title2'], $_POST['description'], $_FILES['file']['name']);
             $this->offerRepository->addOffer($offers);
 
             return $this->render('offer', ['messages' => $this->message, 'offers' => $offers]);

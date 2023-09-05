@@ -23,6 +23,18 @@ form.login{
     align-items: center; 
 }
 
+form.register{
+    width: 25vw;
+    height: 50vh;
+    background-color: #acc2c5;
+    border-radius: 25px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
 button{
     background-color: #bbbbbb;
     box-shadow: 0px 4px 8px #525151;
@@ -49,13 +61,13 @@ input{
 .create-new-account {
     font-size: 2vw;
     position: absolute;
-    top: 29%;
+    top: 23%;
 }
 
 .log-in {
     font-size: 0.7vw;
     position: absolute;
-    top: 64%;
+    top: 69%;
 }
 
 .create-account {
