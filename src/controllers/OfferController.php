@@ -68,4 +68,16 @@ class OfferController extends AppController{
         }
         return true;
     }
+
+    public function showOffer(){
+        if(isset($_COOKIE['email'])){
+            $offerId = $this->offerRepository->getUserID($_COOKIE['email']);
+        }
+        else{
+            $offerId = 1;
+        }
+        $offers = $this->offerRepository->getUsersOffer($offerId);
+        $this->render('showOffer', ['offer' => $offers]);
+    }
+
 }

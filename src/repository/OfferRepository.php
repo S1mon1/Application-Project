@@ -32,7 +32,7 @@ class OfferRepository extends Repository{
         $result = [];
 
         $stmt = $this->database->connect()->prepare(
-            'SELECT * FROM offers'
+            'SELECT * FROM offers ORDER BY id'
         );
         $stmt->execute();
         $offers = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -53,7 +53,15 @@ class OfferRepository extends Repository{
         $stmt = $this->database->connect()->prepare(
             'INSERT INTO offers (brand, model, description, image, id_assigned_by) VALUES (?, ?, ?, ?, ?)
             ');
-        $assignedById = 1;
+
+        $userRepository = new UserRepository();
+        if (isset($_COOKIE['email'])){
+            $assignedById = $userRepository->getUserID($_COOKIE['email']);
+        }
+        else{
+            return;
+        }
+
         $stmt->execute([
             $offer->getTitle(),
             $offer->getModel(),
@@ -73,5 +81,42 @@ class OfferRepository extends Repository{
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getUserId(string $email): ?int
+    {
+        $stmt = $this->database->connect()->prepare('
+        SELECT id FROM public.users WHERE email = :email');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $userId = $stmt->fetchColumn();
+
+        if ($userId === false){
+            return null;
+        }
+        return (int)$userId;
+    }
+
+    public function getUsersOffer(int $id): ?Offer
+    {
+        $stmt = $this->database->connect()->prepare(
+            'SELECT * FROM offers WHERE id_assigned_by = :id'
+        );
+        
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $offer = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($offer == false){
+            return null;
+        }
+        return new Offer(
+            $offer['title'],
+            $offer['model'],
+            $offer['description'],
+            $offer['image']
+        );
     }
 }

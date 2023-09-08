@@ -6,12 +6,27 @@
 </head>
 <body>
     <div class="base-container">
-        <div class="top-nav">           
+        <div class="top-nav">
+
+            <form action="login" method="GET">
+                <button class="button-logout" href="#">
+                <?php
+                if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
+                    echo "Log out";
+                }
+                else {
+                    echo "Log in";
+                }
+                ?>
+                </button>
+            </form>
+                      
             <a>Zarejestruj się</a>
             <a>Zaloguj się</a>
             <a>Oferta</a>
             <a>Strona główna</a>
             <h1 class="main-name">YourDreamCar</h1>
+        
         </div>
 
         <section class="offers-form">

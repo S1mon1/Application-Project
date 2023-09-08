@@ -20,7 +20,10 @@
                 <input name="email" type="text" placeholder="email">
                 <input name="password" type="password" placeholder="password">
                 <button type='submit'>LOGIN</button>
-                <p class="create-account">Create Account</p>
+
+            </form>
+            <form action="create_account" method="GET">
+                <button class="button_create" a href="#">Create Account</button>
             </form>
         </div>
     </div>

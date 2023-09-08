@@ -70,11 +70,33 @@ input{
     top: 69%;
 }
 
-.create-account {
-    font-size: 0.7vw;
+.button_create{
     position: absolute;
     top: 62%;
+    width: 10%;
+    left: 45%;
+    background-color: transparent;
+    box-shadow: none;
+    font-size: 14px;
 }
+
+.button_login{
+    position: absolute;
+    top: 70%;
+    width: 10%;
+    left: 45%;
+    background-color: transparent;
+    box-shadow: none;
+    font-size: 14px;
+}
+.button_start{
+    position: absolute;
+    top: 45%;
+    width: 10%;
+    left: 45%;
+    font-size: 30px;
+}
+
 .welcome{
     font-size: 2vw;
     position: absolute;
@@ -100,6 +122,14 @@ input{
     float: right;
     padding:30px 36px;
     font-size: 17px;
+}
+
+.top-nav form{
+    float: right;
+    padding: 20px 36px;
+}
+.top-nav form button{
+    width: 100px;
 }
 
 .main-name {

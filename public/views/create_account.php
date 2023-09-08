@@ -24,7 +24,9 @@
                 <input name="password" type="password" placeholder="password">
                 <input name="confirmedPassword" type="password" placeholder="confirm password">
                 <button type="submit">CREATE ACCOUNT</button>
-                <p class="log-in">Log in</p>
+            </form>
+            <form action="login" method="GET">
+                <button class="button_login" a href="#">LOGIN</button>
             </form>
         </div>
     </div>

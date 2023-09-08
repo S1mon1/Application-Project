@@ -15,4 +15,30 @@ class DefaultController extends AppController {
     public function index() {
         $this->render('login');
     }
+    public function showOffer(){
+        $this->render('showOffer');
+    }
+
+    public function addOffer(){
+        if ($this->isUserLoggedIn()){
+            $this->render('add-offer');
+        }
+    }
+
+    protected function isUserLoggedIn(){
+        if (isset($_COOKIE['email']) && isset($_COOKIE['password']))
+        {
+            $email = $COOKIE['email'];
+            $password = $_COOKIE['password'];
+
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUser($email);
+
+            if (!password_verify($password, $user->getPassword())){
+                return $this->render('login', ['messages' => ['Wrong password!!!']]);
+            }
+            return true;
+        }
+        return $this->render('login', []);
+    }
 }

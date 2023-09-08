@@ -12,6 +12,7 @@ class SecurityController extends AppController{
 
 
         if(!$this->isPost()){
+            $this->DeleteCookies();
             return $this->render('login');
             
         }
@@ -34,6 +35,7 @@ class SecurityController extends AppController{
 
         //return $this->render('offer');
         $url = "http://$_SERVER[HTTP_HOST]";
+        $this->Cookies($password, $user);
         header("Location: {$url}/offers");
     }
 
@@ -59,5 +61,20 @@ class SecurityController extends AppController{
         $userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['Registrated']]);
+    }
+
+    public function Cookies($password, $user){
+        $time = time() + 3600;
+        setcookie("email", $user->getEmail(), $time, "/");
+        setcookie("password", $password, $time, "/");
+        setcookie("name", $user->getName(), $time, "/");
+        setcookie("surname", $user->getSurname(), $time, "/");
+    }
+
+    public function DeleteCookies(){
+        setcookie("email");
+        setcookie("password");
+        setcookie("name");
+        setcookie("surname");
     }
 }

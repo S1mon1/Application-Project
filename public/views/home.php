@@ -5,7 +5,9 @@
 </head>
 <body>
     <div class="base-container">
-        <button>Start</button>
+        <form action="offers" method="GET">
+            <button class="button_start" a href="#">START</button>
+        </form>
         <div class="top-nav">           
             <a>Zarejestruj się</a>
             <a>Zaloguj się</a>

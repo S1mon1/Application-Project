@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/offers.css">   
     
     <script type="text/javascript" src="./public/js/search.js" defer></script>
-    <title>Offers</title>
+    <title>User Offers</title>
 </head>
 <body>
     <div class="base-container">
@@ -30,23 +30,20 @@
             <h1 class="main-name">YourDreamCar</h1>
 
         </div>
-
-        <div class="search-bar">
-            <input placeholder="search offer">
-        </div>
-        <section class="offers">
-            <?php foreach($offers as $offer): ?>
-            <div id="offer-1">
-                <img src="public/uploads/<?= $offer->getImage(); ?>"/>
+        <section>
+            <form class="showOffer" action="showOffer" method="POST" enctype="multipart/form-data">
                 <div>
-                    <h2><?= $offer->getTitle(); ?></h2>
-                    <h3><?= $offer->getModel(); ?></h3>
-                    <p><?= $offer->getDescription(); ?></p>
+                    <img class="img-offer" src="public/uploads/<?= $offer->getImage(); ?>">
                 </div>
-            </div>
-            <?php endforeach; ?>
+                
+                <div class="offerModel">
+                    <span class="offerText" name="model"><?= $offer->getModel(); ?></span>
+                </div>
+                <div class="offerDescription">
+                    <span class="offerText" name="description"><?= $offer->getDescription(); ?></span>
+                </div>
+            </form>
         </section>
-
     </div>
 </body>
 
