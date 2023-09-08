@@ -22,11 +22,18 @@
                 ?>
                 </button>
             </form>
-                    
-            <a>Zarejestruj się</a>
-            <a>Zaloguj się</a>
-            <a>Oferta</a>
-            <a>Strona główna</a>
+            
+            <form action="addOffer" method="GET">
+                <button class="button_add_offer" a href="#">Add Offer</button>
+            </form>
+            
+            <form action="offers" method="GET">
+                <button class="button_all_offers" a href="#">All Offers</button>
+            </form>
+>
+            <form action="home" method="GET">
+                <button class="button_home" a href="#">Home</button>
+            </form>
             <h1 class="main-name">YourDreamCar</h1>
 
         </div>

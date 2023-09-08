@@ -23,10 +23,25 @@
                 </button>
             </form>
                     
-            <a>Zarejestruj się</a>
-            <a>Zaloguj się</a>
-            <a>Oferta</a>
-            <a>Strona główna</a>
+            <form action="showOffer" method="GET">
+                    <?php
+                        if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
+                            echo '<button class="button_my_offers" a href="#">My Offers</button>';
+                        }
+                    ?>
+            </form>
+
+            <form action="addOffer" method="GET">
+                    <?php
+                        if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
+                            echo '<button class="button_add_offer" a href="#">Add Offer</button>';
+                        }
+                    ?>
+            </form>
+>
+            <form action="home" method="GET">
+                <button class="button_home" a href="#">Home</button>
+            </form>
             <h1 class="main-name">YourDreamCar</h1>
 
         </div>

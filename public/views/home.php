@@ -8,11 +8,41 @@
         <form action="offers" method="GET">
             <button class="button_start" a href="#">START</button>
         </form>
-        <div class="top-nav">           
-            <a>Zarejestruj się</a>
-            <a>Zaloguj się</a>
-            <a>Oferta</a>
-            <a>Strona główna</a>
+        <div class="top-nav">
+            
+        <form action="login" method="GET">
+                <button class="button-logout" href="#">
+                <?php
+                if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
+                    echo "Log out";
+                }
+                else {
+                    echo "Log in";
+                }
+                ?>
+                </button>
+        </form>
+
+            <form action="showOffer" method="GET">
+                    <?php
+                        if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
+                            echo '<button class="button_my_offers" a href="#">My Offers</button>';
+                        }
+                    ?>
+            </form>
+
+            <form action="addOffer" method="GET">
+                    <?php
+                        if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
+                            echo '<button class="button_add_offer" a href="#">Add Offer</button>';
+                        }
+                    ?>
+            </form>
+            
+            <form action="offers" method="GET">
+                <button class="button_all_offers" a href="#">All Offers</button>
+            </form>
+>
             <h1 class="main-name">YourDreamCar</h1>
         </div>
         <div class="bottom-nav">

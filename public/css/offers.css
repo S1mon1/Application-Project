@@ -4,6 +4,7 @@ section.offers{
     grid-gap: 2em;
     padding: 10em;
     overflow: auto;
+    margin-top: 400px;
 }
 
 .offers>div>img {
