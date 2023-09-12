@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Offer.php';
 require_once __DIR__.'/../repository/OfferRepository.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 
 class OfferController extends AppController{
 
@@ -12,6 +13,7 @@ class OfferController extends AppController{
 
     private $message = [];
     private $offerRepository;
+    private $userRepository;
 
     public function __construct()
     {
@@ -22,6 +24,11 @@ class OfferController extends AppController{
     public function offers() {
         $offers = $this->offerRepository->getOffers();
         $this->render('offer', ['offers' => $offers]);
+    }
+
+    public function admin_panel(){
+        $offers = $this->offerRepository->getUsers();
+        $this->render('admin_panel', ['users' => $offers]);
     }
 
     public function addOffer(){

@@ -38,19 +38,16 @@
                         }
                     ?>
             </form>
+
+            <form action="offers" method="GET">
+                <button class="button_all_offers" a href="#">All Offers</button>
+            </form>
+
+            
 >
             <form action="home" method="GET">
                 <button class="button_home" a href="#">Home</button>
             </form>
-
-            <form action="admin_panel" method="GET">
-                    <?php
-                        if (isset($_COOKIE['permissions']) && $_COOKIE['permissions'] == 'admin' && !empty($_COOKIE['permissions'])){
-                            echo '<button class="button_my_offers" a href="#">Admin</button>';
-                        }
-                    ?>
-            </form>
-
             <h1 class="main-name">YourDreamCar</h1>
 
         </div>
@@ -59,15 +56,13 @@
             <input placeholder="search offer">
         </div>
         <section class="offers">
-            <?php foreach($offers as $offer): ?>
-            <div id="offer-1">
-                <img src="public/uploads/<?= $offer->getImage(); ?>"/>
+            <?php foreach($users as $user): ?>
                 <div>
-                    <h2><?= $offer->getTitle(); ?></h2>
-                    <h3><?= $offer->getModel(); ?></h3>
-                    <p><?= $offer->getDescription(); ?></p>
+                    <h3><?= $user->getName(); ?></h2>
+                    <h3><?= $user->getSurname(); ?></h2>
+                    <h3><?= $user->getEmail(); ?></h2>
+                    <button class="delete_user">DELETE</button>                    
                 </div>
-            </div>
             <?php endforeach; ?>
         </section>
 

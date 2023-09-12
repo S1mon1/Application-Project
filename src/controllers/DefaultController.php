@@ -24,6 +24,7 @@ class DefaultController extends AppController {
             $this->render('add-offer');
         }
     }
+   
 
     protected function isUserLoggedIn(){
         if (isset($_COOKIE['email']) && isset($_COOKIE['password']))

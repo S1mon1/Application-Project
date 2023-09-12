@@ -14,5 +14,7 @@ Routing::post('addOffer', 'OfferController');
 Routing::post('search', 'OfferController');
 Routing::post('register', 'SecurityController');
 Routing::get('showOffer', 'OfferController');
+Routing::get('admin_panel', 'OfferController');
+Routing::get('showUsers', 'OfferController');
 
 Routing::run($path);

@@ -67,3 +67,6 @@ ALTER TABLE users
 INSERT INTO users (email, password, id_user_details) VALUES ('test_email', 'test_password', 1);
 INSERT INTO users_details(name, surname) VALUES ('John', 'Snow');
 INSERT INTO offers (brand, model, description, image, id_assigned_by) VALUES ('brand','model','description','photo.png',1);
+
+ALTER TABLE users ADD COLUMN permissions varchar(20) DEFAULT 'normal_user';
+UPDATE users SET permissions = 'admin' where id = 29;

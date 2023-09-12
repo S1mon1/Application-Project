@@ -34,6 +34,15 @@
             <form action="home" method="GET">
                 <button class="button_home" a href="#">Home</button>
             </form>
+
+            <form action="admin_panel" method="GET">
+                    <?php
+                        if (isset($_COOKIE['permissions']) && $_COOKIE['permissions'] == 'admin' && !empty($_COOKIE['permissions'])){
+                            echo '<button class="button_my_offers" a href="#">Admin</button>';
+                        }
+                    ?>
+            </form>
+
             <h1 class="main-name">YourDreamCar</h1>
 
         </div>

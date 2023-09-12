@@ -16,7 +16,6 @@ class SecurityController extends AppController{
             return $this->render('login');
             
         }
-
         $email = $_POST['email'];
         $password = $_POST['password'];
         $user = $userRepository->getUser($email);
@@ -29,7 +28,7 @@ class SecurityController extends AppController{
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
 
-        if ($user->getPassword() !== $password){
+        if (!password_verify($password, $user->getPassword())){
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
@@ -57,7 +56,8 @@ class SecurityController extends AppController{
             return $this->render('create_account', ['messages' => 'Wrong passwords!']);
         }
 
-        $user = new User($name, $surname, $email, $password, $name, $surname);
+        $hashpassword = password_hash($password, PASSWORD_BCRYPT);
+        $user = new User($name, $surname, $email, $hashpassword, $name, $surname);
         $userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['Registrated']]);
@@ -69,6 +69,7 @@ class SecurityController extends AppController{
         setcookie("password", $password, $time, "/");
         setcookie("name", $user->getName(), $time, "/");
         setcookie("surname", $user->getSurname(), $time, "/");
+        setcookie("permissions", $user->getPermissions(), $time, "/");
     }
 
     public function DeleteCookies(){
@@ -76,5 +77,6 @@ class SecurityController extends AppController{
         setcookie("password");
         setcookie("name");
         setcookie("surname");
+        setcookie("permissions");
     }
 }

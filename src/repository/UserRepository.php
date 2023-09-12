@@ -26,7 +26,8 @@ class UserRepository extends Repository{
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $usr['permissions']
         );
     }
 
@@ -36,6 +37,7 @@ class UserRepository extends Repository{
         $stmt = $this->database->connect()->prepare('
         INSERT INTO users_details (name, surname, phone) VALUES (?, ?, ?)');
         $user->setPhone("222");
+        $user->setPermissions("normal_user");
         $stmt->execute([
             $user->getName(),
             $user->getSurname(),
@@ -43,12 +45,12 @@ class UserRepository extends Repository{
         ]);
 
         $stmt = $this->database->connect()->prepare('
-        INSERT INTO users (email, password, id_user_details) VALUES (?, ?, ?)');
-
+        INSERT INTO users (email, password, id_user_details, permissions) VALUES (?, ?, ?, ?)');
         $stmt->execute([
             $user->getEmail(),
             $user->getPassword(),
-            $this->getUserDetailsID($user)
+            $this->getUserDetailsID($user),
+            $user->getPermissions()
         ]);
     }
 
@@ -82,6 +84,7 @@ class UserRepository extends Repository{
             return null;
         }
         return (int)$userId;
-    }
+    }       
+     
 }
 

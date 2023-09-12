@@ -119,4 +119,27 @@ class OfferRepository extends Repository{
             $offer['image']
         );
     }
+
+        public function getUsers(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare(
+            'SELECT * FROM public.users U JOIN public.users_details UD ON U.id_user_details = UD.id'
+        );
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($users as $user){
+            $result[] = new User(
+                $user['name'],
+                $user['surname'],
+                $user['email'],
+                $user['password'],
+                $user['permissions']
+            );
+        }
+        
+        return $result;
+    }
+    
 }
