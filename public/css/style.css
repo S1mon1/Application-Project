@@ -182,10 +182,7 @@ input{
     .login-container{
         flex-direction: column;
     }
-    form{
-        width: 50vw;
-        height: 40vh;
-    }
+    
     button{
         font-size: 2vw;
     }
@@ -214,7 +211,7 @@ input{
     }
 
     form.login{
-        position: absolute;
+        position: center;
         width: 55vw;
         height: 35vh;
         background-color: #acc2c5;
@@ -228,22 +225,22 @@ input{
 
     .welcome{
         position: absolute;
-        top: 3%;
+        top: 33%;
     }
 
     .button_create{
         position: absolute;
-        top: 59%;
+        top: 61%;
         width: 10%;
-        left: 47%;
+        left: 45%;
         background-color: transparent;
         box-shadow: none;
         font-size: 20px;
     }
 
     form.register{
-        position: absolute;
-        width: 55vw;
+        position: center;
+        width: 65vw;
         height: 50vh;
         background-color: #acc2c5;
         border-radius: 25px;
@@ -256,14 +253,14 @@ input{
 
     .create-new-account {
         position: absolute;
-        top: 0.1%;
+        top: 25%;
     }
 
     .button_login{
         position: absolute;
-        top: 77%;
+        top: 71%;
         width: 10%;
-        left: 47%;
+        left: 45%;
         background-color: transparent;
         box-shadow: none;
         font-size: 20px;
@@ -273,6 +270,12 @@ input{
         flex-direction: row;
         height: 140px;
         font-size: 30px;
+    }
+
+    .button_start{
+        width: 20%;
+        font-size: 40px;
+        left: 40%;
     }
     
 }
