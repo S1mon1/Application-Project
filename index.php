@@ -16,5 +16,6 @@ Routing::post('register', 'SecurityController');
 Routing::get('showOffer', 'OfferController');
 Routing::get('admin_panel', 'OfferController');
 Routing::get('showUsers', 'OfferController');
+Routing::post('delete', 'SecurityController');
 
 Routing::run($path);

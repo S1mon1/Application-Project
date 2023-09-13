@@ -26,16 +26,6 @@ section.offers{
     justify-content: space-between;
 }
 
-@media only screen and (max-device-width: 420px){
-    section{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 2em;
-        padding: 10em;
-        overflow: auto;
-    }
-}
-
 section.offers-form{
     width: 25vw;
     height: 40vh;
@@ -63,4 +53,46 @@ section.offers-form{
 
 .offers-form>form>textarea{
     width:15vw;
+}
+
+@media only screen and (max-device-width: 420px){
+    section{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2em;
+        padding: 10em;
+        overflow: auto;
+    }
+
+    section.offers-form{
+        width: 13vw;
+        height: 17vh;
+        background-color: #acc2c5;
+        border-radius: 25px;
+        left:50px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .offers-form>form>textarea{
+        width:45vw;
+    }
+
+    .upload{
+        font-size: 60px;
+        margin-bottom: 1px;
+    }
+
+    section.offers{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2em;
+        padding: 10em;
+        overflow: auto;
+        margin-top: 650px;
+    }
+    
 }

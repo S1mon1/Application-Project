@@ -43,8 +43,6 @@
                 <button class="button_all_offers" a href="#">All Offers</button>
             </form>
 
-            
->
             <form action="home" method="GET">
                 <button class="button_home" a href="#">Home</button>
             </form>
@@ -52,18 +50,19 @@
 
         </div>
 
-        <div class="search-bar">
-            <input placeholder="search offer">
-        </div>
+       
         <section class="offers">
-            <?php foreach($users as $user): ?>
-                <div>
-                    <h3><?= $user->getName(); ?></h2>
-                    <h3><?= $user->getSurname(); ?></h2>
-                    <h3><?= $user->getEmail(); ?></h2>
-                    <button class="delete_user">DELETE</button>                    
-                </div>
-            <?php endforeach; ?>
+            <form class="delete" action="delete" method="POST">
+                <?php foreach ($users as $user): ?>
+                    <div>
+                        <h3><?= $user->getName(); ?></h3>
+                        <h3><?= $user->getSurname(); ?></h3>
+                        <h3><?= $user->getEmail(); ?></h3>
+                        <input type="hidden" name="user_id[]" value="<?= $user->getEmail(); ?>">
+                        <button type="submit" name="delete_user" value="<?= $user->getEmail(); ?>" class="button_delete_user">DELETE</button>
+                    </div>
+                <?php endforeach; ?>
+            </form>
         </section>
 
     </div>

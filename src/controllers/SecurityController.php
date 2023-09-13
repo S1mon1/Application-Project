@@ -63,6 +63,19 @@ class SecurityController extends AppController{
         return $this->render('login', ['messages' => ['Registrated']]);
     }
 
+    public function delete(){
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            if (isset($_POST["delete_user"])) {
+                $selectedUserIds = $_POST["user_id"];
+                $userIdToDelete = $_POST["delete_user"];
+            }
+        }
+        $userRepository = new UserRepository();
+        $userId = $userRepository->getUserId($userIdToDelete);
+        $userRepository->deleteUser($userId);
+        return $this->render('home');
+    }
+
     public function Cookies($password, $user){
         $time = time() + 3600;
         setcookie("email", $user->getEmail(), $time, "/");
